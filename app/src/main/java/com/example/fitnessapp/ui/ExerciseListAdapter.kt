@@ -7,9 +7,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.example.fitnessapp.R
 import com.example.fitnessapp.models.ExerciesModelItem
 import com.example.fitnessapp.models.exerciesModel
+import pl.droidsonroids.gif.GifImageView
 
 class ExerciseListAdapter : ListAdapter<ExerciesModelItem, ExerciseListAdapter.ExerciseListViewHolder>(ExerciseDiffCallback()) {
 
@@ -26,8 +30,14 @@ class ExerciseListAdapter : ListAdapter<ExerciesModelItem, ExerciseListAdapter.E
 
     inner class ExerciseListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val textViewBodyPart: TextView = itemView.findViewById(R.id.tvExerciseItem)
+        private val gifImageView: GifImageView = itemView.findViewById(R.id.ivExerciseItem)
 
         fun bind(exerciseModelItem: ExerciesModelItem) {
+            Glide.with(itemView)
+                .asGif()
+                .load(exerciseModelItem.gifUrl)
+                .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.RESOURCE))
+                .into(gifImageView)
             textViewBodyPart.text = exerciseModelItem.name
         }
     }

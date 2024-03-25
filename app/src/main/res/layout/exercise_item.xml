@@ -5,7 +5,12 @@
     android:layout_margin="8dp"
     android:orientation="vertical">
 
-    <ImageView
+<!--    <ImageView-->
+<!--        android:id="@+id/ivExerciseItem"-->
+<!--        android:layout_width="160dp"-->
+<!--        android:layout_height="160dp"/>-->
+
+    <pl.droidsonroids.gif.GifImageView
         android:id="@+id/ivExerciseItem"
         android:layout_width="160dp"
         android:layout_height="160dp"/>
