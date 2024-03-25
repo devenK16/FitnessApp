@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         val recyclerViewBP: RecyclerView = binding.rvBodyParts
         recyclerViewBP.layoutManager = StaggeredGridLayoutManager(
-            2, // Number of columns
+            2,
             StaggeredGridLayoutManager.VERTICAL
         )
 
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
         val recyclerViewTE: RecyclerView = binding.rvTargetMuscles
         recyclerViewTE.layoutManager = StaggeredGridLayoutManager(
-            2, // Number of columns
+            2,
             StaggeredGridLayoutManager.VERTICAL
         )
 

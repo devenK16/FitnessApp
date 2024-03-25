@@ -1,5 +1,6 @@
 package com.example.fitnessapp.ui
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,6 +30,12 @@ class TrainTargetMuscleAdapter(private val targetMuscles: Array<String>) :
 
         fun bind(targetMuscle: String) {
             textViewTargetMuscle.text = targetMuscle
+            itemView.setOnClickListener{
+                val context = itemView.context
+                val intent = Intent(context, ExerciseList::class.java)
+                intent.putExtra("fromTargetMuscle", targetMuscle )
+                context.startActivity(intent)
+            }
         }
     }
 }
